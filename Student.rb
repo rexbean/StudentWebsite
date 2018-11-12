@@ -11,9 +11,7 @@ class Student
 
   def check()
     result = true
-    result = false if @data[:firstname].to_s.empty?
-      || @data[:lastname].to_s.empty?
-      || @data[:birthday] !~ /^\d\d\d\d-\d\d?\d\d?$/
+    result = false if @data[:firstname].to_s.empty? || @data[:lastname].to_s.empty? || @data[:birthday] !~ /^\d\d\d\d-\d\d?\d\d?$/
     return result
   end
 
