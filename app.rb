@@ -65,10 +65,14 @@ post '/student/new' do
   redirect '/login' unless session[:login]
   student = Student.new
   student.data = params
-  redirect '/student/new?result=valid%20Data' unless student.check
-  a = student.getInfo
-  Student.create(a)
-  redirect '/student'
+  unless student.check
+    @message = "invalid data"
+    erb :student_input
+  else
+    a = student.getInfo
+    Student.create(a)
+    redirect '/student'
+  end
 end
 
 # show student detail
