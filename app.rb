@@ -130,10 +130,14 @@ post '/comment/new' do
   redirect '/login' unless session[:login]
   comment = Comment.new
   comment.data = params
-  redirect '/comment/new?result=valid%20Data' unless comment.check
-  a = comment.getInfo
-  Comment.create(a)
-  redirect '/comment'
+  unless comment.check
+    @message = 'invalid data'
+    @comment = Comment new
+  else
+    a = comment.getInfo
+    Comment.create(a)
+    redirect '/comment'
+  end
 end
 
 # show comment detail
@@ -154,12 +158,16 @@ end
 # edit
 post '/comment/:id/edit' do |id|
   redirect '/login' unless session[:login]
-  comment = Comment.get(id)
-  comment.data = params
-  redirect '/comment/new?result=valid%20Data' unless comment.check
-  a = comment.getInfo
-  comment.update(a)
-  redirect '/comment'
+  @comment = Comment.get(id)
+  @comment.data = params
+  unless comment.check
+    @message = 'invalid data'
+    @comment = Comment.new
+  else
+    a = comment.getInfo
+    comment.update(a)
+    redirect '/comment'
+  end
 end
 
 # show video
