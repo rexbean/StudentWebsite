@@ -9,7 +9,6 @@ require './Comment'
 DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, development? ? "sqlite3://#{Dir.pwd}/info.db" : ENV['DATABASE_URL'])
 DataMapper.finalize
-DataMapper.auto_migrate!
 
 
 configure do
@@ -24,7 +23,7 @@ end
 # here for the administrator
 # get login page
 get '/login' do
-  @message = "username is admin, password is password, thanks"
+  @message = "username: admin, password: password"
   erb :login
 end
 
@@ -35,8 +34,8 @@ post '/login' do
     @content = 'You have login successfully'
     erb :index
   else
-    @message = 'login failed'
-    erb :login
+    @message = 'login failed, username: admin, password: password'
+    redirect '/login'
   end
 
 end
@@ -69,7 +68,7 @@ post '/student/new' do
   redirect '/student/new?result=valid%20Data' unless student.check
   a = student.getInfo
   Student.create(a)
-  erb :student_list
+  redirect '/student'
 end
 
 # show student detail
@@ -93,7 +92,7 @@ post '/student/:id/edit' do |id|
   redirect '/student/new?result=valid%20Data' unless student.check
   a = student.getInfo
   student.update(a)
-  erb :student_list
+  redirect '/student'
 end
 
 # delete student info
@@ -125,7 +124,7 @@ post '/comment/new' do
   redirect '/comment/new?result=valid%20Data' unless comment.check
   a = comment.getInfo
   Comment.create(a)
-  erb :comment_list
+  redirect '/comment'
 end
 
 # show comment detail
