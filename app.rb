@@ -16,7 +16,7 @@ configure do
 end
 
 get '/' do
-  @content = 'this is hello world!!!'
+  @content = 'this is a student info system implemented by Ruby + Sinatra'
   erb :index
 end
 
