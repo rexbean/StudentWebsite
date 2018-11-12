@@ -32,10 +32,10 @@ end
 post '/login' do
   if params[:username].to_s == 'admin' && params[:password].to_s == 'password'
     session[:login] = true
-    redirect '/'
+    erb :index
   else
     @message = 'login failed'
-    redirect '/login'
+    erb :login
   end
 
 end
@@ -43,7 +43,7 @@ end
 # logout
 get '/logout' do
   session.clear
-  redirect '/'
+  erb :index
 end
 
 # Here for the student
