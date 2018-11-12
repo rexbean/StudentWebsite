@@ -67,6 +67,7 @@ post '/student/new' do
   student.data = params
   unless student.check
     @message = "invalid data"
+    @student = Student.new
     erb :student_input
   else
     a = student.getInfo
@@ -91,14 +92,14 @@ end
 # get the updated info
 post '/student/:id/edit' do |id|
   redirect '/login' unless session[:login]
-  student = Student.get(id)
-  student.data = params
-  unless student.check
+  @student = Student.get(id)
+  @student.data = params
+  unless @student.check
     @message = "invalid data"
     erb :student_input
   else
-    a = student.getInfo
-    student.update(a)
+    a = @student.getInfo
+    @student.update(a)
     redirect '/student'
   end
 end
