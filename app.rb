@@ -121,13 +121,13 @@ end
 # add comment page
 get '/comment/new' do
   @comment = Comment.new
-  redirect '/login' unless session[:login]
+  # redirect '/login' unless session[:login]
   erb :comment_input
 end
 
 # add comment
 post '/comment/new' do
-  redirect '/login' unless session[:login]
+  # redirect '/login' unless session[:login]
   comment = Comment.new
   comment.data = params
   unless comment.check
@@ -143,33 +143,33 @@ end
 
 # show comment detail
 get '/comment/:id' do |id|
-  redirect '/login' unless session[:login]
+  # redirect '/login' unless session[:login]
   @comment = Comment.get(id)
   erb :comment_detail
 end
 
 
-# edit student info
-get '/comment/:id/edit' do |id|
-  redirect '/login' unless session[:login]
-  @comment = Comment.get(id)
-  erb :comment_input
-end
+# # edit student info
+# get '/comment/:id/edit' do |id|
+#   redirect '/login' unless session[:login]
+#   @comment = Comment.get(id)
+#   erb :comment_input
+# end
 
-# edit
-post '/comment/:id/edit' do |id|
-  redirect '/login' unless session[:login]
-  @comment = Comment.get(id)
-  @comment.data = params
-  unless comment.check
-    @message = 'invalid data'
-    @comment = Comment.new
-  else
-    a = comment.getInfo
-    comment.update(a)
-    redirect '/comment'
-  end
-end
+# # edit
+# post '/comment/:id/edit' do |id|
+#   redirect '/login' unless session[:login]
+#   @comment = Comment.get(id)
+#   @comment.data = params
+#   unless comment.check
+#     @message = 'invalid data'
+#     @comment = Comment.new
+#   else
+#     a = comment.getInfo
+#     comment.update(a)
+#     redirect '/comment'
+#   end
+# end
 
 # show video
 get '/video' do
