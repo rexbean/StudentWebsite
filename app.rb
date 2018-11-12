@@ -32,6 +32,7 @@ end
 post '/login' do
   if params[:username].to_s == 'admin' && params[:password].to_s == 'password'
     session[:login] = true
+    @content = 'You have login successfully'
     erb :index
   else
     @message = 'login failed'
