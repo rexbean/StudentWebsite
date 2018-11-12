@@ -2,11 +2,7 @@
   <!-- Content here -->
   <h2>Please Input new Comment</h2>
   <p><%=@message%></p>
-  <% if @comment.username == nil%>
   <form method="post" target="/comment/new">
-  <%else %>
-  <form method="post" target="/commentt/<%=@comment.id%>/update">
-  <%end%>
     <div class="form-group">
       <label for="username">Username</label>
       <input type="text" class="form-control" name="username" placeholder="Enter Username" value = "<%=@comment.username%>">
