@@ -2,7 +2,7 @@
   <!-- Content here -->
   <h2>Please Input new Comment</h2>
   <p><%=@message%></p>
-  <form method="post" target="/comment/new">
+  <form method="post" action="/comment/new">
     <div class="form-group">
       <label for="username">Username</label>
       <input type="text" class="form-control" name="username" placeholder="Enter Username" value = "<%=@comment.username%>">

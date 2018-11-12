@@ -3,9 +3,9 @@
   <h2>Please Input new Student Info</h2>
   <p><%=@message%></p>
   <% if @student.firstname == nil%>
-  <form method="post" target="/student/new">
+  <form method="post" action="/student/new">
   <%else %>
-  <form method="post" target="/student/<%=@student.id%>/update">
+  <form method="post" action="/student/<%=@student.id%>/update">
   <%end%>
     <div class="form-group">
       <label for="first_name">FirstName</label>
