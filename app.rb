@@ -35,7 +35,7 @@ post '/login' do
     erb :index
   else
     @message = 'login failed, username: admin, password: password'
-    redirect '/login'
+    erb :login
   end
 
 end
