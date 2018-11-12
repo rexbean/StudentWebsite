@@ -89,10 +89,14 @@ post '/student/:id/edit' do |id|
   redirect '/login' unless session[:login]
   student = Student.get(id)
   student.data = params
-  redirect '/student/new?result=valid%20Data' unless student.check
-  a = student.getInfo
-  student.update(a)
-  redirect '/student'
+  unless student.check
+    @message = "invalid data"
+    erb :student_input
+  else
+    a = student.getInfo
+    student.update(a)
+    redirect '/student'
+  end
 end
 
 # delete student info
