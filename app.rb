@@ -69,7 +69,7 @@ post '/student/new' do
   redirect '/student/new?result=valid%20Data' unless student.check
   a = student.getInfo
   Student.create(a)
-  redirect '/student'
+  erb :student_list
 end
 
 # show student detail
@@ -93,7 +93,7 @@ post '/student/:id/edit' do |id|
   redirect '/student/new?result=valid%20Data' unless student.check
   a = student.getInfo
   student.update(a)
-  redirect '/student'
+  erb :student_list
 end
 
 # delete student info
@@ -125,7 +125,7 @@ post '/comment/new' do
   redirect '/comment/new?result=valid%20Data' unless comment.check
   a = comment.getInfo
   Comment.create(a)
-  redirect '/comment'
+  erb :comment_list
 end
 
 # show comment detail
