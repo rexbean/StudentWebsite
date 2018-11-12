@@ -1,0 +1,28 @@
+<div class = "container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope = "col">#</th>
+        <th scope = "col">First Name</th>
+        <th scope = "col">Last Name</th>
+        <th scope = "col">Birthday</th>
+        <th scope = "col">Address</th>
+        <th scope = "col">Student Id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><%="#{@student.id}"%></th>
+        <td><%="#{@student.firstname}"%></td>
+        <td><%="#{@student.lastname}"%></td>
+        <td><%="#{@student.birthday}"%></td>
+        <td><%="#{@student.address}"%></td>
+        <td><%="#{@student.student_id}"%></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <a class="btn btn-success" href = "/student">Student</a>
+  <a class="btn btn-primary" href = "/student/<%=@student.id%>/edit">Edit</a>
+  <a class="btn btn-danger" href = "/student/<%=@student.id%>/delete">Delete</a>
+</div>

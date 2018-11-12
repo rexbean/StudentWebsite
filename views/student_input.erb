@@ -1,0 +1,32 @@
+<div class="container">
+  <!-- Content here -->
+  <h2>Please Input new Student Info</h2>
+  <p><%=@message%></p>
+  <% if @student.firstname == nil%>
+  <form method="post" target="/student/new">
+  <%else %>
+  <form method="post" target="/student/<%=@student.id%>/update">
+  <%end%>
+    <div class="form-group">
+      <label for="first_name">FirstName</label>
+      <input type="text" class="form-control" name="firstname" placeholder="Enter firstname" value = "<%=@student.firstname%>">
+    </div>
+    <div class="form-group">
+      <label for="last_name">LastName</label>
+      <input type="text" class="form-control" name="lastname" placeholder="Enter lastname" value = "<%=@student.firstname%>">
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" name="address" placeholder="Enter address" value = "<%=@student.address%>">
+    </div>
+    <div class="form-group">
+      <label for="birthday">Birthday</label>
+      <input type="text" class="form-control" name="birthday" placeholder="Enter birthday" value = "<%=@student.birthday%>">
+    </div>
+    <div class="form-group">
+      <label for="studentId">StudendId</label>
+      <input type="text" class="form-control" name="student_id" placeholder="Enter student Id" value = "<%=@student.student_id%>">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

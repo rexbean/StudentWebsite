@@ -1,0 +1,21 @@
+<div class = "container">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @comments.each do |comment|%>
+        <tr>
+          <th scope="row"><%="#{comment.id}"%></th>
+          <td><a href = "/comment/<%=comment.id%>"><%="#{comment.username}"%></a></td>
+          <td><%="#{comment.comment}"%></td>
+        </tr>
+      <%end%>
+  </tbody>
+</table>
+<a href= "/comment/new">Add new Comment</a>
+</div>

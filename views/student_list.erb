@@ -1,0 +1,19 @@
+<div class = "container">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @students.each do |student|%>
+        <tr>
+          <th scope="row"><%="#{student.id}"%></th>
+          <td><a href = "/student/<%=student.id%>"><%="#{student.firstname} #{student.lastname}"%></a></td>
+        </tr>
+      <%end%>
+  </tbody>
+</table>
+<a href= "/student/new">Add new Student</a>
+</div>
