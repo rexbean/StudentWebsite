@@ -30,14 +30,14 @@ end
 
 # login
 post '/login' do
-  if params[:username].to_s != 'admin' &&
-    params[:password].to_s != 'password'
-      @message = 'login failed'
-      redirect '/login'
-  else
+  if params[:username].to_s == 'admin' && params[:password].to_s == 'password'
     session[:login] = true
     redirect '/'
+  else
+    @message = 'login failed'
+    redirect '/login'
   end
+
 end
 
 # logout
