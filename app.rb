@@ -133,6 +133,7 @@ post '/comment/new' do
   unless comment.check
     @message = 'invalid data'
     @comment = Comment new
+    erb :comment_input
   else
     a = comment.getInfo
     Comment.create(a)
