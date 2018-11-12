@@ -44,7 +44,7 @@ end
 # logout
 get '/logout' do
   session.clear
-  erb :index
+  redirect '/login'
 end
 
 # Here for the student
