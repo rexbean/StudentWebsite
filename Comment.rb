@@ -7,18 +7,20 @@ class Comment
 
   attr_accessor :data
 
+  # check the data is valid or not
   def check()
     result = true
     result = false if @data[:username].to_s.empty? || @data[:comment].to_s.empty?
     return result
   end
 
-  def getInfo()
-    puts 'a'
-    puts @data
-    puts 'b'
-    return @data
-  end
+  # # get the data
+  # def getInfo()
+  #   puts 'a'
+  #   puts @data
+  #   puts 'b'
+  #   return @data
+  # end
 
 
 end
