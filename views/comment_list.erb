@@ -12,8 +12,8 @@
       <% @comments.each do |comment|%>
         <tr>
           <th scope="row"><%="#{comment.id}"%></th>
-          <td><a href = "/comment/<%=comment.id%>"><%="#{comment.username}"%></a></td>
-          <td><%="#{comment.comment}"%></td>
+          <td><%="#{comment.username}"%></td>
+          <td><a href = "/comment/<%=comment.id%>"><%="#{comment.comment}"%></a></td>
           <td><%="#{comment.created_at}"%></td>
         </tr>
       <%end%>
