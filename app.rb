@@ -71,7 +71,7 @@ post '/student/new' do
     @student = Student.new
     erb :student_input
   else
-    a = student.getInfo
+    a = student.data
     Student.create(a)
     redirect '/student'
   end
@@ -99,7 +99,7 @@ post '/student/:id/edit' do |id|
     @message = "invalid data"
     erb :student_input
   else
-    a = @student.getInfo
+    a = @student.data
     @student.update(a)
     redirect '/student'
   end
@@ -136,7 +136,7 @@ post '/comment/new' do
     @comment = Comment.new
     erb :comment_input
   else
-    a = comment.getInfo
+    a = comment.data
     Comment.create(a)
     redirect '/comment'
   end
