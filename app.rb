@@ -16,8 +16,9 @@ configure do
 end
 
 get '/' do
-  @content = 'this is a student info system implemented by Ruby + Sinatra'
-  erb :index
+#   @content = 'this is a student info system implemented by Ruby + Sinatra'
+#   erb :index
+  redirect '/login'
 end
 
 # here for the administrator
@@ -43,7 +44,7 @@ end
 # logout
 get '/logout' do
   session.clear
-  erb :index
+  redirect '/login'
 end
 
 # Here for the student
